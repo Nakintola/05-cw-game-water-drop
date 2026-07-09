@@ -143,3 +143,66 @@ body {
         height: 70vh;
     }
 }
+
+/* ===== Added: Reset button ===== */
+#reset-btn {
+    padding: 8px 16px;
+    background-color: #F5402C;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+#reset-btn:hover {
+    background-color: #d6392a;
+}
+
+/* ===== Added: Confetti pieces ===== */
+.confetti-piece {
+    position: fixed;
+    top: -10px;
+    width: 10px;
+    height: 10px;
+    border-radius: 2px;
+    animation-name: confetti-fall;
+    animation-timing-function: ease-in;
+    z-index: 1000;
+}
+
+@keyframes confetti-fall {
+    from {
+        top: -10px;
+        transform: rotate(0deg);
+    }
+    to {
+        top: 100vh;
+        transform: rotate(360deg);
+    }
+}
+
+/* ===== Added: Extra breakpoint for phones ===== */
+@media (max-width: 480px) {
+    .score-panel {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .score, .timer {
+        font-size: 18px;
+    }
+
+    .game-title {
+        font-size: 32px;
+    }
+
+    .game-tagline {
+        font-size: 14px;
+    }
+
+    #start-btn, #reset-btn {
+        width: 100%;
+        font-size: 15px;
+    }
+}
