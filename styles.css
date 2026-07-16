@@ -1,9 +1,7 @@
 /* Charity: water Brand Colors & Fonts
-
 Primary Colors:
 - Yellow:     #FFC907
 - Blue:       #2E9DF7
-
 Secondary Colors:
 - Light Blue: #8BD1CB
 - Green:      #4FCB53
@@ -11,33 +9,61 @@ Secondary Colors:
 - Red:        #F5402C
 - Dark Green: #159A48
 - Pink:       #F16061
-
 Fonts:
 - Proxima Nova
 - Avenir
-
+(Using Montserrat from Google Fonts as a free substitute)
 */
-
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
-
 body {
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     min-height: 100vh;
     background-color: #f0f0f0;
-    font-family: Arial, sans-serif;
+    font-family: 'Montserrat', Arial, sans-serif;
 }
-
 .game-wrapper {
     display: flex;
     flex-direction: column;
     align-items: center;
     gap: 20px;
+}
+
+/* ===== Difficulty panel ===== */
+.difficulty-panel {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    width: 800px;
+}
+.difficulty-label {
+    font-weight: 600;
+    color: #131313;
+}
+.difficulty-btn {
+    padding: 6px 14px;
+    border: 2px solid #2E9DF7;
+    background-color: white;
+    color: #2E9DF7;
+    border-radius: 20px;
+    cursor: pointer;
+    font-family: 'Montserrat', Arial, sans-serif;
+    font-weight: 600;
+    font-size: 14px;
+    transition: all 0.2s ease;
+}
+.difficulty-btn:hover {
+    background-color: #e6f7ff;
+}
+.difficulty-btn.active {
+    background-color: #2E9DF7;
+    color: white;
 }
 
 .score-panel {
@@ -50,11 +76,19 @@ body {
     border-radius: 8px;
     box-shadow: 0 2px 4px rgba(0,0,0,0.1);
 }
-
 .timer {
     flex: 0 1 auto;
     font-size: 24px;
     font-weight: bold;
+}
+
+/* ===== Milestone message ===== */
+.milestone-message {
+    height: 24px;
+    font-size: 18px;
+    font-weight: 700;
+    color: #4FCB53;
+    text-align: center;
 }
 
 #game-container {
@@ -66,8 +100,6 @@ body {
     position: relative;
     overflow: hidden;
 }
-
-
 #start-btn {
     padding: 8px 16px;
     background-color: #4CAF50;
@@ -77,17 +109,14 @@ body {
     cursor: pointer;
     font-size: 16px;
 }
-
 #start-btn:hover {
     background-color: #45a049;
 }
-
 .score {
     flex: 0 1 auto;  /* Don't grow, can shrink, auto basis */
     font-size: 24px;
     font-weight: bold;
 }
-
 .water-drop {
     position: absolute;
     width: 60px;  /* increased from 40px */
@@ -101,15 +130,12 @@ body {
     margin: -15px;  /* Offset padding to maintain visual size */
     transition: transform 0.1s ease;  /* Smooth hover effect */
 }
-
 .water-drop:hover {
     transform: scale(1.1);  /* Slight grow effect on hover */
 }
-
 .bad-drop {
     background-color: #ff4444;
 }
-
 .game-title {
     color: #131313;
     font-size: 48px;
@@ -117,14 +143,12 @@ body {
     margin-bottom: 5px;  /* reduced from 20px */
     text-align: center;
 }
-
 .game-tagline {
     color: #666;
     font-size: 18px;
     margin-bottom: 20px;
     text-align: center;
 }
-
 @keyframes dropFall {
     from {
         transform: translateY(-20px);
@@ -133,9 +157,8 @@ body {
         transform: translateY(600px);
     }
 }
-
 @media (max-width: 850px) {
-    .game-wrapper, .score-panel, #game-container {
+    .game-wrapper, .score-panel, #game-container, .difficulty-panel {
         width: 95vw;
     }
     
@@ -143,7 +166,6 @@ body {
         height: 70vh;
     }
 }
-
 /* ===== Added: Reset button ===== */
 #reset-btn {
     padding: 8px 16px;
@@ -154,11 +176,9 @@ body {
     cursor: pointer;
     font-size: 16px;
 }
-
 #reset-btn:hover {
     background-color: #d6392a;
 }
-
 /* ===== Added: Confetti pieces ===== */
 .confetti-piece {
     position: fixed;
@@ -170,7 +190,6 @@ body {
     animation-timing-function: ease-in;
     z-index: 1000;
 }
-
 @keyframes confetti-fall {
     from {
         top: -10px;
@@ -181,28 +200,41 @@ body {
         transform: rotate(360deg);
     }
 }
-
 /* ===== Added: Extra breakpoint for phones ===== */
 @media (max-width: 480px) {
     .score-panel {
         flex-direction: column;
         gap: 10px;
     }
-
     .score, .timer {
         font-size: 18px;
     }
-
     .game-title {
         font-size: 32px;
     }
-
     .game-tagline {
         font-size: 14px;
     }
-
     #start-btn, #reset-btn {
         width: 100%;
         font-size: 15px;
     }
+}
+
+/* ===== Added: Footer ===== */
+.site-footer {
+    margin-top: 30px;
+    padding: 20px;
+    text-align: center;
+    color: #666;
+    font-size: 14px;
+    max-width: 800px;
+}
+.site-footer a {
+    color: #2E9DF7;
+    font-weight: 600;
+    text-decoration: none;
+}
+.site-footer a:hover {
+    text-decoration: underline;
 }
